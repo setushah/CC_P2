@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request
-from cnn import predict
+#from cnn import predict
 
 app = Flask(__name__)
 
