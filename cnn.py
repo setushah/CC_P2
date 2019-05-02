@@ -1,7 +1,4 @@
-from google.cloud import storage
 
-from keras.preprocessing.image import img_to_array
-from keras.models import load_model
 import numpy as np
 import argparse
 import imutils
@@ -10,27 +7,28 @@ import cv2
 import os
 import random
 
-MODEL_BUCKET = os.environ['model_and_images_bucket']
-MODEL_FILENAME = os.environ['save1.pkl']
-MODEL = None
+
 def predict(image_path):
     #img_dir="C:\\"
     #image_path=img_dir+str(image_id)
+
     image_path = "static/"+image_path
-    image = cv2.imread(image_path)
+    #image = cv2.imread(image_path)
     
-    output = imutils.resize(image, width=400)
-    image = cv2.resize(image, (96, 96))
-    image = image.astype("float") / 255.0
-    image = img_to_array(image)
-    image = np.expand_dims(image, axis=0)
+    # output = imutils.resize(image, width=400)
+    # image = cv2.resize(image, (96, 96))
+    # image = image.astype("float") / 255.0
+    # image = img_to_array(image)
+    # image = np.expand_dims(image, axis=0)
 
     aperture=[(0,2.8),(2.8,4.9),(4.9)]
     iso=[(0,215),(215,464),(464)]
-    a1=random.randint(0,3)
-    i1=random.randint(0,3)
-
+    a1=random.randint(0,2)
+    i1=random.randint(0,2)
+    print(a1)
+    print(i1)
     ans="The recommended ISO settings are "+str(iso[i1])+"recommended aperture settings  are  "+str(aperture[a1])
+    print(ans)
     return ans
 
 
@@ -52,8 +50,8 @@ def predict(image_path):
   
     
     # show the output image
-    cv2.imshow("Output", output)
-    cv2.waitKey(0)
+    # cv2.imshow("Output", output)
+    # cv2.waitKey(0)
 # def get_image(image_id):
 #
 #      client = storage.Client()
