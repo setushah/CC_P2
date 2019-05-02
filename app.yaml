@@ -10,6 +10,11 @@ automatic_scaling:
   min_idle_instances: 1
   max_idle_instances: 1
 
+env_variables:
+    # The app will look for the model file at: gs://MODEL_BUCKET/MODEL_FILENAME
+    MODEL_BUCKET: model_and_images_bucket
+    MODEL_FILENAME: fashion.model
+
 handlers:
 - url: /.*
   script: main.app
