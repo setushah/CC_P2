@@ -6,6 +6,10 @@ libraries:
 - name: ssl
   version: latest
 
+automatic_scaling:
+  min_idle_instances: 1
+  max_idle_instances: 1
+
 handlers:
 - url: /.*
   script: main.app
