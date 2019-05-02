@@ -12,8 +12,8 @@ def hello_world():
 @app.route('/result', methods=['POST'])
 def result():
     name = request.form['name']
-    predict(name)
-    return render_template('final.html', name=name)
+    res= predict(name)
+    return render_template('final.html', res= res)
 
 @app.errorhandler(500)
 def server_error(e):
