@@ -88,7 +88,6 @@ def predict(image_path):
     aperture=[(0,2.8),(2.8,4.9),(4.9),(0,215),(215,464),(464)]
     return "The recommended ISO settings are" +str(aperture[idxs[0]])+"recommended aperture settings are"+str(aperture[idxs[1]])
   
-    
  
 	
 def get_image(image_id):
